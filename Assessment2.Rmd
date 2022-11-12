@@ -1,0 +1,44 @@
+---
+title: "Assessment2"
+output:
+  bookdown::html_document2: default
+  bookdown::pdf_document2: default
+date: "2022-11-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align ="center")
+```
+
+```{r packages}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("bookdown")
+library(bookdown)
+library(ggplot2)
+```
+
+# Learning to reference figures
+
+```{r figreAssessment2, fig.cap= "This is random noise."}
+
+x = seq(1:100)
+y = rnorm(100)
+dat = data.frame(x, y)
+
+ggplot(dat, aes(x = x, y = y)) +
+  geom_line()
+
+```
+
+This is the reference to the figure above See Figure \@ref(fig:figreAssessment2).
+
+
+## Learning to reference tables
+
+```{r tblAssessment2}
+
+knitr::kable(dat[1:5,], caption = "Using dat.")
+```
+
+This is the reference to the table above See Table \@ref(tab:tblAssessment2).
